@@ -12,19 +12,19 @@ namespace Practice_2017_6
         {
             if (el == m)
             {
-                Console.Write(el + "\nКонец последовательности, аN=M");
+                Console.Write(el + "\nКонец последовательности, аN=M\n");
                 Console.ReadKey();
                 return true;
             }
             if (el > m)
             {
-                Console.Write("\nКонец последовательности, аN не равно M");
+                Console.WriteLine("\nКонец последовательности, аN не равно M");
                 Console.ReadKey();
                 return true;
             }
             Console.Write(el+" "); // Если элемент меньше М, то печатаем его и идём дальше
             return false;
-        } // Проверка для начальных элементов
+        }                     // Проверка для начальных элементов
 
         static void NumericalSequence(double a1, double a2, double a3, double m)
         {
@@ -45,20 +45,17 @@ namespace Practice_2017_6
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Последовательно через пробел введите: а1, а2 и а3");
-            string[] numbers = Console.ReadLine().Split(' ');
-
-            Console.Write("Введите М: ");
-            double m = double.Parse(Console.ReadLine());
-
-            double a3 = double.Parse(numbers[2]), a2 = double.Parse(numbers[1]), a1 = double.Parse(numbers[0]);
-
+            Console.Write("Введите а1: "); double a1 = Read.Double();
+            Console.Write("Введите а2: "); double a2 = Read.Double();
+            Console.Write("Введите а3: "); double a3 = Read.Double();
+            Console.Write("Введите М: "); double m = Read.Double();
+            
             if(IsElBiggerOrEqualsM(a1, m)) return; // Проверка первых элементов по очереди, сделано отдельно, т.к. вместе проходится по каждому условию и печатаются лишние строки
             if(IsElBiggerOrEqualsM(a2, m)) return;
             if(IsElBiggerOrEqualsM(a3, m)) return;
 
             NumericalSequence(a1, a2, a3, m);
             Console.ReadKey();
-        }
+        }                                          // Чтение переменных, вызов их сравнения с M и после вызов вычисления и вывод последовательности
     }
 }
